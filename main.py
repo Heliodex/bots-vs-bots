@@ -538,7 +538,10 @@ class PlaceClient:
                             client.proxies = proxy.get_random_proxy(self, name)
                             client.headers.update(
                                 {
-                                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36"
+                                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36",
+                                    "sec-ch-ua": 'Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+                                    # https://github.com/WorldObservationLog/reddit-place-script-2023/issues/5
+                                    # huge thanks to @tyl0re!
                                 }
                             )
 
