@@ -29,7 +29,10 @@ class PlaceClient:
         self.json_data = utils.get_json_data(self, config_path)
         self.raw_pixel_x_start: int = self.json_data["image_start_coords"][0]
         self.raw_pixel_y_start: int = self.json_data["image_start_coords"][1]
-        self.pixel_x_start = self.raw_pixel_x_start + 500
+        if self.raw_pixel_x_start > 500:
+            self.pixel_x_start = self.raw_pixel_x_start - 500
+        else:
+            self.pixel_x_start = self.raw_pixel_x_start + 500
         if self.raw_pixel_y_start >= 0:
             self.pixel_y_start = self.raw_pixel_y_start
         else:
@@ -83,10 +86,17 @@ class PlaceClient:
     # Draw a pixel at an x, y coordinate in r/place with a specific color
 
     def show_raw_pixel_coordinate(self, x, y, canvas_index):
-        raw_x = x - 500
         if canvas_index == 1:
             raw_y = y - 1000
-        else:
+            raw_x = x - 500
+        elif canvas_index == 4:
+            raw_y = y
+            raw_x = x - 500
+        elif canvas_index == 2:
+            raw_x = x + 500
+            raw_y = y + 1000
+        elif canvas_index == 5:
+            raw_x = x + 500
             raw_y = y
         return raw_x, raw_y
 
@@ -101,8 +111,8 @@ class PlaceClient:
         thread_index=-1,
     ):
         # canvas structure:
-        # 1
-        # 4
+        # 1 | 2
+        # 4 | 5
         raw_x, raw_y = self.show_raw_pixel_coordinate(x, y, canvas_index)
         logger.warning(
             "Thread #{} - {}: Attempting to place {} pixel at {}, {}",
@@ -516,7 +526,6 @@ class PlaceClient:
                         exit(1)
 
                     while True:
-                        time.sleep(5)
                         try:
                             client = requests.Session()
                             client.proxies = proxy.get_random_proxy(self, name)
@@ -631,10 +640,14 @@ class PlaceClient:
                     canvas = 0
                     pixel_x_start = self.pixel_x_start + current_r
                     pixel_y_start = self.pixel_y_start + current_c
-                    if self.raw_pixel_y_start >= 0:
+                    if self.raw_pixel_y_start >= 0 and self.raw_pixel_x_start < 500:
                         canvas = 4
-                    else:
+                    elif self.raw_pixel_y_start < 0 and self.raw_pixel_x_start < 500:
                         canvas = 1
+                    elif self.raw_pixel_y_start < 0 and self.raw_pixel_x_start >= 500:
+                        canvas = 2
+                    elif self.raw_pixel_y_start >= 0 and self.raw_pixel_x_start >= 500:
+                        canvas = 5
 
 
                     # draw the pixel onto r/place
