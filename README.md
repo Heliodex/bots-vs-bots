@@ -1,4 +1,4 @@
-# Reddit Place Script 2022
+# Reddit Place Script 2023
 
 [![Code style: black](./black_badge.svg)](https://github.com/psf/black)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
@@ -12,6 +12,7 @@
 ## About
 
 This is a script to draw an image onto r/place (<https://www.reddit.com/r/place/>).
+It has adapted r/place in 2023.
 
 ## Features
 
