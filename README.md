@@ -12,6 +12,7 @@
 ## About
 
 This is a script to draw an image onto r/place (<https://www.reddit.com/r/place/>).
+
 It has adapted r/place in 2023.
 
 ## Features
@@ -28,7 +29,7 @@ It has adapted r/place in 2023.
 
 ## Requirements
 
--   [Latest Version of Python 3](https://www.python.org/downloads/)
+-   [Python 3.10](https://www.python.org/downloads/)
 
 ## macOS
 
