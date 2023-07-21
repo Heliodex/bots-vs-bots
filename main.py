@@ -1,4 +1,5 @@
 import math
+import ssl
 
 import requests
 import json
@@ -200,6 +201,10 @@ class PlaceClient:
                 ws = create_connection(
                     "wss://gql-realtime-2.reddit.com/query",
                     origin="https://hot-potato.reddit.com",
+                    sslopt={"cert_reqs": ssl.CERT_NONE},
+                    # Fixed #1
+                    # https://github.com/marckopop/reddit-place-script-2023/commit/75ff87d8329fc675065b436c59d48dbf00c72915
+                    # Huge thanks to @marckopop
                 )
                 break
             except Exception:
