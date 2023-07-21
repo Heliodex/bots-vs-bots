@@ -7,10 +7,18 @@ class ColorMapper:
         "#FF4500": 2,  # red
         "#FFA800": 3,  # orange T
         "#FFD635": 4,  # yellow T
-        "#00A368": 6,  # green
+        "#00A368": 6,  # dark green
+        "#7EED56": 8,  # light green
+        "#2450A4": 12,  # dark blue
         "#3690EA": 13,  # blue T
+        "#51E9F4": 14,  # light blue
+        "#811E9F": 18,  # dark purple
         "#B44AC0": 19,  # purple T
+        "#FF99AA": 23,  # light pink
+        "#9C6926": 25,  # brown
         "#000000": 27,  # black T
+        "#898D90": 29,  # grey
+        "#D4D7D9": 30,  # light grey
         "#FFFFFF": 31,  # white, T
     }
 
@@ -20,9 +28,17 @@ class ColorMapper:
         3: "Orange",
         4: "Yellow",
         6: "Green",
+        8: "Light Green",
+        12: "Dark Blue",
         13: "Blue",
+        14: "Light Blue",
+        18: "Dark Purple",
         19: "Purple",
+        23: "Light Pink",
+        25: "Brown",
         27: "Black",
+        29: "Grey",
+        30: "Light Grey",
         31: "White",
     }
 
