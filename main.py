@@ -90,13 +90,14 @@ class PlaceClient:
         # canvas structure:
         # 1
         # 4
+
         logger.warning(
             "Thread #{} - {}: Attempting to place {} pixel at {}, {}",
             thread_index,
             name,
             ColorMapper.color_id_to_name(color_index_in),
-            x + (1000 * (canvas_index % 2)),
-            y + (1000 * (canvas_index // 2)),
+            x,
+            y,
         )
 
         url = "https://gql-realtime-2.reddit.com/query"
@@ -620,7 +621,7 @@ class PlaceClient:
                         canvas += 4
                     else:
                         canvas += 1
-                        pixel_x_start += 1000
+                        pixel_y_start += 1000
 
 
                     # draw the pixel onto r/place
