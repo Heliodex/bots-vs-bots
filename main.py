@@ -178,13 +178,8 @@ class PlaceClient:
                     name,
                 )
             except KeyError:
-                logger.error("{} - Access Token is expired, waiting for update...", name)
+                logger.error("{} - Access Token is expired, waiting for updating...", name)
                 waitTime = 300000
-            logger.error(
-                "Thread #{} - {}: Failed placing pixel: rate limited",
-                thread_index,
-                name,
-            )
         else:
             waitTime = math.floor(
                 response.json()["data"]["act"]["data"][0]["data"][
