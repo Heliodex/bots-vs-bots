@@ -563,6 +563,10 @@ class PlaceClient:
                                 data=data,
                                 proxies=proxy.get_random_proxy(self, name),
                             )
+                            if r.text.find("INCORRECT_USERNAME_PASSWORD") != -1:
+                                logger.warning("{} - Authorization failed! trying again in 10 seconds...", username)
+                                time.sleep(10)
+                                continue
                             break
                         except Exception:
                             logger.error(
