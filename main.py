@@ -95,7 +95,7 @@ class PlaceClient:
             raw_x = x - 500
         elif canvas_index == 2:
             raw_x = x + 500
-            raw_y = y + 1000
+            raw_y = y - 1000
         elif canvas_index == 5:
             raw_x = x + 500
             raw_y = y
