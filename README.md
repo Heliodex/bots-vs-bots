@@ -10,7 +10,7 @@ This project now has many bugs and I have no ability to debug. More developers a
 
 Confirmed Bugs:
 
-- Randomly authorization failed
+- Nothing now
 
 # Thanks to everyone who contributed! r/place is now over!
 <a href="https://github.com/rdeepak2002/reddit-place-script-2022/graphs/contributors">
