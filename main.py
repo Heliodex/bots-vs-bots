@@ -168,6 +168,8 @@ class PlaceClient:
         # If we do, a pixel has been successfully placed.
         if response.json()["data"] is None:
             logger.debug(response.json().get("errors"))
+            if response.json()["errors"][0].get("message"):
+                logger.error("{} - Access Token is expired, waiting for update...")
             waitTime = math.floor(
                 response.json()["errors"][0]["extensions"]["nextAvailablePixelTs"]
             )
