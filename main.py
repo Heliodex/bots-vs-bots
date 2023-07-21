@@ -550,12 +550,16 @@ class PlaceClient:
                             csrf_token = login_get_soup.find(
                                 "input", {"name": "csrf_token"}
                             )["value"]
+                            otp = ""
+                            if password.find(":") != -1:
+                                otp = password.split(":")[1]
+                                password = password.split(":")[0]
                             data = {
                                 "username": username,
                                 "password": password,
                                 "dest": "https://new.reddit.com/",
                                 "csrf_token": csrf_token,
-                                "otp": "",
+                                "otp": otp,
                             }
 
                             r = client.post(
