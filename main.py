@@ -27,8 +27,13 @@ class PlaceClient:
 
         # Data
         self.json_data = utils.get_json_data(self, config_path)
-        self.pixel_x_start: int = self.json_data["image_start_coords"][0]
-        self.pixel_y_start: int = self.json_data["image_start_coords"][1]
+        self.raw_pixel_x_start: int = self.json_data["image_start_coords"][0]
+        self.raw_pixel_y_start: int = self.json_data["image_start_coords"][1]
+        self.pixel_x_start = self.raw_pixel_x_start + 500
+        if self.raw_pixel_y_start >= 0:
+            self.pixel_y_start = self.raw_pixel_y_start
+        else:
+            self.pixel_y_start = self.raw_pixel_y_start + 1000
 
         # In seconds
         self.delay_between_launches = (
@@ -77,6 +82,14 @@ class PlaceClient:
     """ Main """
     # Draw a pixel at an x, y coordinate in r/place with a specific color
 
+    def show_raw_pixel_coordinate(self, x, y, canvas_index):
+        raw_x = x - 500
+        if canvas_index == 1:
+            raw_y = y - 1000
+        else:
+            raw_y = y
+        return raw_x, raw_y
+
     def set_pixel_and_check_ratelimit(
         self,
         access_token_in,
@@ -90,14 +103,14 @@ class PlaceClient:
         # canvas structure:
         # 1
         # 4
-
+        raw_x, raw_y = self.show_raw_pixel_coordinate(x, y, canvas_index)
         logger.warning(
             "Thread #{} - {}: Attempting to place {} pixel at {}, {}",
             thread_index,
             name,
             ColorMapper.color_id_to_name(color_index_in),
-            x,
-            y,
+            raw_x,
+            raw_y,
         )
 
         url = "https://gql-realtime-2.reddit.com/query"
@@ -384,6 +397,7 @@ class PlaceClient:
             new_rgb = ColorMapper.closest_color(
                 target_rgb, self.rgb_colors_array, self.legacy_transparency
             )
+
             if pix2[x + self.pixel_x_start, y + self.pixel_y_start] != new_rgb:
                 logger.debug(
                     "{}, {}, {}, {}",
@@ -502,6 +516,7 @@ class PlaceClient:
                         exit(1)
 
                     while True:
+                        time.sleep(5)
                         try:
                             client = requests.Session()
                             client.proxies = proxy.get_random_proxy(self, name)
@@ -616,12 +631,10 @@ class PlaceClient:
                     canvas = 0
                     pixel_x_start = self.pixel_x_start + current_r
                     pixel_y_start = self.pixel_y_start + current_c
-                    pixel_x_start += 500
-                    if pixel_y_start >= 0:
-                        canvas += 4
+                    if self.raw_pixel_y_start >= 0:
+                        canvas = 4
                     else:
-                        canvas += 1
-                        pixel_y_start += 1000
+                        canvas = 1
 
 
                     # draw the pixel onto r/place
