@@ -168,11 +168,13 @@ class PlaceClient:
         # If we do, a pixel has been successfully placed.
         if response.json()["data"] is None:
             logger.debug(response.json().get("errors"))
-            if response.json()["errors"][0].get("message"):
+            try:
+                waitTime = math.floor(
+                    response.json()["errors"][0]["extensions"]["nextAvailablePixelTs"]
+                )
+            except KeyError:
                 logger.error("{} - Access Token is expired, waiting for update...", name)
-            waitTime = math.floor(
-                response.json()["errors"][0]["extensions"]["nextAvailablePixelTs"]
-            )
+                waitTime = 300000
             logger.error(
                 "Thread #{} - {}: Failed placing pixel: rate limited",
                 thread_index,
