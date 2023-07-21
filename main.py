@@ -172,6 +172,11 @@ class PlaceClient:
                 waitTime = math.floor(
                     response.json()["errors"][0]["extensions"]["nextAvailablePixelTs"]
                 )
+                logger.error(
+                    "Thread #{} - {}: Failed placing pixel: rate limited",
+                    thread_index,
+                    name,
+                )
             except KeyError:
                 logger.error("{} - Access Token is expired, waiting for update...", name)
                 waitTime = 300000
