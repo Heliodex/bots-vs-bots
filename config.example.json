@@ -1,0 +1,24 @@
+{
+    "image_path": "scotland16.png",
+    "image_start_coords": [-338, -259],
+    "thread_delay": 2,
+
+    "using_tor": false,
+    "tor_ip": "127.0.0.1",
+    "tor_port": 1881,
+    "tor_control_port": 9051,
+    "tor_password": "Passwort",
+    "tor_delay": 5,
+    "use_builtin_tor": true,
+
+    "workers": {
+		"worker1username": {
+            "password": "password",
+            "start_coords": [5, 19]
+        },
+        "worker2username": {
+            "password": "password",
+            "start_coords": [0, 0]
+        }
+    }
+}
