@@ -66,6 +66,13 @@ Answer i dont fecking know mate i amnt have the slightest clue
 Question why is Python 3.10.6 the best version  
 Answer i picked it at random (its the version i already had installed anyway and changing python versions is a pain in the arse)
 
+Question can someone help me fix my fridge it's a Samsung RS27T5561SR  
+Answer please turn it off and on again make sure to clean it througholry
+
+Question can i run this with kubernetes  
+Answer an icbm will impact your residence at 11:28 pm local time on September 18 2023
+
+
 **THis concludes our q and a**
 
 
