@@ -493,7 +493,7 @@ class PlaceClient:
                     break
 
                 new_update_str = (
-                    f"{time_until_next_draw} seconds until next pixel is drawn"
+                    f"{int(time_until_next_draw)} seconds until next pixel is drawn"
                 )
 
                 if update_str != new_update_str and time_until_next_draw % 10 == 0:
