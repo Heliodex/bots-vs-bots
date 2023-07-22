@@ -20,6 +20,8 @@ assignees: ''
 
 Replace this text with a description of the bug.
 
+Current commit hash: Replace this text with the output of `git rev-parse HEAD`
+
 ## To Reproduce
 
 Steps to trigger the bug:
