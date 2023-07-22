@@ -8,7 +8,12 @@ To prevent r/Scotland being invaded by the 4chan botnet, we'll create our own bo
   - go to <https://www.python.org/downloads/release/python-3106/> and download python 3.10.6 at the bottom of the page
     - if you're feeling lucky go to <https://www.python.org/downloads/> and click the yellow button instead to download the latest version, it'll probably work but i cant be arsed testing it and i know 3.10.6 works anyway
   - run the installer
-- run `pip3 install -r requirements.txt` or `pip install -r requirements.txt` or `python -m pip install -r requirements.txt`, whichever one works first
+- download this repo by clicking the \[<> Code ↓] dropdown in the top right of this page and click "Download ZIP"
+  - then unpack it into your downloads folder or wherevr
+  - if you have github desktop then use that instead
+- open a terminal in the folder (probably called bots-vs-bots-main) by doing right click > open in terminal or whatevr
+- in the terminal run `pip3 install -r requirements.txt` or `pip install -r requirements.txt` or `python -m pip install -r requirements.txt`, whichever one works first
+  - if none of them work, uh idk good luck lmao
 
 # configuringggn
 
@@ -40,10 +45,12 @@ To prevent r/Scotland being invaded by the 4chan botnet, we'll create our own bo
 
 # how to, uh, how to run
 
+idk mate im too tired for this shite
+
 - `python main.py`
 - or `python3 main.py`
 - or failing that, open main.py in the IDLE (type it in the taskbar or apps bar or whatever until it comes up) then press f5
-  - the console output will look fucked up if you have to do it this way dont worry about that
+  - the console output will look fucked up if you have to do it this way dont worry bout that
 
 # theres an error what do i do
 
