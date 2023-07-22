@@ -6,7 +6,7 @@ To prevent r/Scotland being invaded by the 4chan botnet, we'll create our own bo
 
 - install python
   - go to <https://www.python.org/downloads/release/python-3106/> and download python 3.10.6 at the bottom of the page
-    - if you're feeling lucky go to <https://www.python.org/downloads/> and click the yellow button instead to download the latest version, it'll probably work but i cant be arsed testing it and i know 3.10.6 works anyway
+    - if you're feeling lucky go to <https://www.python.org/downloads/> and click the yellow button instead to download the latest version, it'll probably work just fine but i cant be arsed testing it and i know 3.10.6 works anyway
   - run the installer
 - download this repo by clicking the \[<> Code ↓] dropdown in the top right of this page and click "Download ZIP"
   - then unpack it into your downloads folder or wherevr
@@ -52,9 +52,22 @@ idk mate im too tired for this shite
 - or failing that, open main.py in the IDLE (type it in the taskbar or apps bar or whatever until it comes up) then press f5
   - the console output will look fucked up if you have to do it this way dont worry bout that
 
-# theres an error what do i do
+# faq
 
-i dont fecking know mate i amnt have the slightest clue
+Question can i run this with WSL  
+Answer yes and it will probably work better
+
+Question can i run this with Docker  
+Answer fuck you
+
+Question theres an error what do i do  
+Answer i dont fecking know mate i amnt have the slightest clue
+
+Question why is Python 3.10.6 the best version  
+Answer i picked it at random (its the version i already had installed anyway and changing python versions is a pain in the arse)
+
+**THis concludes our q and a**
+
 
 # see here
 
